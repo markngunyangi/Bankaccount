@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .caption {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bank Account</h1>
+        <p id="customerId">Customer ID: <span id="customerID"></span></p>
+
+        <h2>Balance</h2>
+        <p id="balance">Loading...</p>
+
+        <h2>Deposit</h2>
+        <p class="caption">Enter a valid amount for deposit.</p>
+        <p class="caption">Deposit limits: Max per transaction: Kes. 40K, Max frequency: 4 transactions/day, Max for the day: Kes. 150K</p>
+        <form id="depositForm">
+            <label for="depositAmount">Amount:</label>
+            <input type="number" id="depositAmount" name="amount" required>
+            <button type="submit">Deposit</button>
+        </form>
+
+        <h2>Withdraw</h2>
+        <p class="caption">Enter a valid amount for withdrawal.</p>
+        <p class="caption">Withdrawal limits: Max per transaction: Kes. 20K, Max frequency: 3 transactions/day, Max for the day: Kes. 50K</p>
+        <form id="withdrawForm">
+            <label for="withdrawAmount">Amount:</label>
+            <input type="number" id="withdrawAmount" name="amount" required>
+            <button type="submit">Withdraw</button>
+        </form>
+    </div>
+
+    <script>
+      
+        document.getElementById("customerID").innerText = Math.floor(Math.random() * 1000000);
+
+       
+        function fetchBalance() {
+            fetch("/balance")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("balance").innerText = "Balance: " + data.balance;
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        
+        fetchBalance();
+
+       
+        document.getElementById("depositForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch("/deposit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    amount: parseFloat(formData.get("amount"))
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                fetchBalance();
+                document.getElementById("depositAmount").value = ""; // Clear input field
+            })
+            .catch(error => console.error("Error:", error));
+        });
+
+        
+        document.getElementById("withdrawForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch("/withdraw", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    amount: parseFloat(formData.get("amount"))
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                fetchBalance();
+                document.getElementById("withdrawAmount").value = ""; // Clear input field
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
