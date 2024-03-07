@@ -18,7 +18,7 @@ Before running the project, ensure you have the following installed:
 
 2. Navigate to the project directory:
 
-  
+  ```bash
    cd bank-account-project
    
 
@@ -32,8 +32,9 @@ Before running the project, ensure you have the following installed:
 
 To start the server, run the following command:
 
-
+```bash
 uvicorn main:app --reload
+```
 
 
 This command will start the server locally, and it will automatically reload whenever you make changes to the code.
@@ -59,7 +60,4 @@ Once the server is running, you can access the web application by opening a web 
 Once the server is running, open a web browser and navigate to http://127.0.0.1:8000/docs.
 
 You'll see the FastAPI Swagger UI interface, which provides a comprehensive documentation of your API endpoints along with input fields to test each endpoint.
-# Bankaccount
-# Bankaccount
-# Bankaccount
 # Bankaccount
