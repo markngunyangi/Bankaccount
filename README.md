@@ -1,11 +1,4 @@
-# Bankaccount
-Sure, here's a README file explaining how to run your project:
-
----
-
-# Bank Account Project
-
-This project is a simple web application for managing bank accounts. It allows users to check their balance, deposit money, and withdraw money within certain limits.
+# Bank Account Project Interview(FastAPI, Python, HTML, CSS, JS)
 
 ## Prerequisites
 
@@ -66,4 +59,5 @@ Once the server is running, you can access the web application by opening a web 
 Once the server is running, open a web browser and navigate to http://127.0.0.1:8000/docs.
 
 You'll see the FastAPI Swagger UI interface, which provides a comprehensive documentation of your API endpoints along with input fields to test each endpoint.
+# Bankaccount
 # Bankaccount
