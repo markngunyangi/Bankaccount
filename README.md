@@ -62,3 +62,4 @@ You'll see the FastAPI Swagger UI interface, which provides a comprehensive docu
 # Bankaccount
 # Bankaccount
 # Bankaccount
+# Bankaccount
