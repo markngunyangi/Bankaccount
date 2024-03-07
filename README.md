@@ -19,7 +19,7 @@ Before running the project, ensure you have the following installed:
 2. Navigate to the project directory:
 
   ```bash
-   cd bank-account-project
+   cd bank-account
   ```
 
 3. Install the required Python packages:
@@ -60,5 +60,6 @@ Once the server is running, you can access the web application by opening a web 
 Once the server is running, open a web browser and navigate to http://127.0.0.1:8000/docs.
 
 You'll see the FastAPI Swagger UI interface, which provides a comprehensive documentation of your API endpoints along with input fields to test each endpoint.
+# Bankaccount
 # Bankaccount
 # Bankaccount
