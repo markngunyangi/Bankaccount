@@ -18,13 +18,13 @@ Before running the project, ensure you have the following installed:
 
 2. Navigate to the project directory:
 
-   
-   cd bank-account-project
   
+   cd bank-account-project
+   
 
 3. Install the required Python packages:
 
-   
+   ```bash
    pip install -r requirements.txt
    
 
