@@ -24,9 +24,9 @@ Before running the project, ensure you have the following installed:
 
 3. Install the required Python packages:
 
-   ```bash
+  ```bash
    pip install -r requirements.txt
-   ```
+  ```
 
 ## Running the Server
 
@@ -60,6 +60,5 @@ Once the server is running, you can access the web application by opening a web 
 Once the server is running, open a web browser and navigate to http://127.0.0.1:8000/docs.
 
 You'll see the FastAPI Swagger UI interface, which provides a comprehensive documentation of your API endpoints along with input fields to test each endpoint.
-# Bankaccount
-# Bankaccount
+
 # Bankaccount
